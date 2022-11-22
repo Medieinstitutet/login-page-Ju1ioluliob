@@ -4,29 +4,48 @@ let login = document.getElementById("inputSave")
 
 // skapa inloggare
 
-let users = [
-    {userName: "janne", password: "test"},
-    {user: "tony", password: "montana"}
+const users = [
+    {
+        "username": "janne", 
+    "password": "test"
+    },
+    {
+        "username": "tony", 
+    "password": "montana"
+     }
 ]
 
 
 // logga in användare 
 login.addEventListener("click", ()=> {
     console.log("Click on button")
-let user = users.find(user => user.userName === inputUs.value)
-console.log(inputUs.value)
-let pass = users.find(user => user.password === password.value)
-console.log(password.value)
-validate()
-noLogin()
-LogoutButton()
+// let user = users.find(() => ({userName: inputUs.value}))
+// console.log(inputUs.value)
+// let pass = users.find(user => ({password: password.value}))
+//   let username = inputUs.value;
+//         let pass = password.value;
+for (i = 0; i < users.length; i++) {
+if (inputUs.value == users[i].username && password.value == users[i].password /*|| username === "tony" && pass === "montana" */) {
+            console.log("You have succesfully logged in")
+            noLogin()
+    LogoutButton()
+// console.log(password.value)
+return
+}
+            }    
+ console.log("h")
+        }
+// validate() === true
+    
+
+
     // for (i = 0; i < user.length; i++) {
     //     if (user[i].password === inputPas.value && user[i].userName === inputUs.value){
     //         console.log("hej")
     //     }
     // }
 
-})
+)
 
 // kollar igenom om det är rätt inloggning
     function validate() {
