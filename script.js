@@ -19,7 +19,7 @@ let pass = users.find(user => user.password === password.value)
 console.log(password.value)
 validate()
 noLogin()
-
+LogoutButton()
     // for (i = 0; i < user.length; i++) {
     //     if (user[i].password === inputPas.value && user[i].userName === inputUs.value){
     //         console.log("hej")
@@ -50,5 +50,18 @@ function noLogin(){
     head.style.display = "none"
 
 }
+
+function LogoutButton(){
+
+//  skapa och skriv ut en logga ut knapp
+let logoutBtn = document.createElement("button")
+logoutBtn.innerText = "Logout"
+logoutBtn,addEventListener("click", () => {
+    console.log("knapp igenom")
+})
+logout.appendChild(logoutBtn)
+
+}
+
 
 // visa ny diplay på skärmen
