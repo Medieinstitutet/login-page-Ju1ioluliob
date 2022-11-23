@@ -1,13 +1,39 @@
+* {
+    box-sizing:border-box
+}
+
+html, body{
+    min-height: 100%;
+    padding: 0;
+    margin: 0;
+}
+header{
+    position: fixed;
+    top: 0;
+    background-color: lightblue;
+    width: 100%;
+}
+
+.log {
+    position: absolute;
+    outline-style: solid;
+    outline-color: red;
+    background-color:grey;
+    left: 35%;
+    top: 200px;
+    size: 100px;
+    height:25rem;
+    width:30rem;
+
+    padding-top: 100px;
+    padding-left:150px;
+}
 footer{
     background-color: blue;
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-}
-header{
-    position: relative;
-    left: 100px;
 }
 
 .text{

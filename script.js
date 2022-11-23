@@ -34,10 +34,13 @@ if (inputUs.value == users[i].username && password.value == users[i].password /*
 return
 }
             }    
-
-            show.innerText= "The user does not exist"
+            const head = document.getElementById("head")
+            showText=document.createElement("h2")
+            showText.innerText= "The user does not exist"
  console.log("not a valid account")
+        head.appendChild(showText)
         }
+        
 // validate() === true
     
 
@@ -73,16 +76,35 @@ function noLogin(){
 
 }
 
-function LogoutButton(){
 
 //  skapa och skriv ut en logga ut knapp
+function LogoutButton(){
+
 let logoutBtn = document.createElement("button")
 logoutBtn.innerText = "Logout"
+
+// flttar kanppen till höger
+
+logoutBtn.style.position= "fixed"
+    logoutBtn.style.left= "93%"
+    logoutBtn.style.top= "30px"
+
+// visa den som är inloggad
+let loggedUser = document.createElement("h2")
+loggedUser.innerText= "Inlogged as: " + inputUs.value;
+
+// brevid logoutknapp
+
+loggedUser.style.position= "fixed"
+loggedUser.style.left= "85%"
+
+    // lägger till funkiton logga ut 
 logoutBtn,addEventListener("click", () => {
     console.log("knapp igenom")
+    
 })
 logout.appendChild(logoutBtn)
-
+logout.appendChild(loggedUser)
 }
 
 
