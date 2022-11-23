@@ -15,72 +15,49 @@ const users = [
     "password": "montana"
      }
 ]
+  
 
+function log() {
+for (i = 0; i < users.length; i++) {
+    if (inputUs.value == users[i].username && password.value == users[i].password /*|| username === "tony" && pass === "montana" */) {
+                console.log("You have succesfully logged in " + inputUs.value)
+                noLogin()
+        LogoutButton()
+    // console.log(password.value)
+    return
+    }
+                }    
+                const head = document.getElementById("head")
+                showText=document.createElement("h2")
+                showText.innerText= "The user does not exist"
+     console.log("not a valid account")
+            head.appendChild(showText)
+            }
+            
 
 // logga in användare 
 login.addEventListener("click", ()=> {
     console.log("Click on button")
-// let user = users.find(() => ({userName: inputUs.value}))
-// console.log(inputUs.value)
-// let pass = users.find(user => ({password: password.value}))
-//   let username = inputUs.value;
-//         let pass = password.value;
-for (i = 0; i < users.length; i++) {
-if (inputUs.value == users[i].username && password.value == users[i].password /*|| username === "tony" && pass === "montana" */) {
-            console.log("You have succesfully logged in " + inputUs.value)
-            noLogin()
-    LogoutButton()
-// console.log(password.value)
-return
-}
-            }    
-            const head = document.getElementById("head")
-            showText=document.createElement("h2")
-            showText.innerText= "The user does not exist"
- console.log("not a valid account")
-        head.appendChild(showText)
-        }
-        
-// validate() === true
-    
+    log()
+})
 
 
-    // for (i = 0; i < user.length; i++) {
-    //     if (user[i].password === inputPas.value && user[i].userName === inputUs.value){
-    //         console.log("hej")
-    //     }
-    // }
-
-)
-
-// kollar igenom om det är rätt inloggning
-    function validate() {
-        let username = inputUs.value;
-        let pass = password.value;
-        if (username === "janne" && pass === "test" || username === "tony" && pass === "montana") {
-            console.log("You have succesfully logged in")
-            // const head = document.getElementById("head")
-            // head.style.display = "none"
-
-    } else {
-        alert("login failed, please try again....")
-    }
-}
 
 // tar bort section i header alltså login funktion
 
 function noLogin(){
-    validate = true;
+    
     const head = document.getElementById("head")
     head.style.display = "none"
 
 }
 
 
+    let logoutBtn = document.createElement("button")
+
+
 //  skapa och skriv ut en logga ut knapp
 function LogoutButton(){
-
-let logoutBtn = document.createElement("button")
 logoutBtn.innerText = "Logout"
 
 // flttar kanppen till höger
@@ -96,16 +73,22 @@ loggedUser.innerText= "Inlogged as: " + inputUs.value;
 // brevid logoutknapp
 
 loggedUser.style.position= "fixed"
-loggedUser.style.left= "85%"
+loggedUser.style.left= "78%"
+loggedUser.style.top= "9px"
+loggedUser.style.color= "grey"
 
-    // lägger till funkiton logga ut 
-logoutBtn,addEventListener("click", () => {
-    console.log("knapp igenom")
-    
-})
+
+
 logout.appendChild(logoutBtn)
 logout.appendChild(loggedUser)
 }
-
-
+    // lägger till funkiton logga ut 
+ logoutBtn.addEventListener("click", () => {
+        console.log("knapp igenom")
+        const head = document.getElementById("head")
+        head.style.display = "block"
+        console.log("funkion funka inte")
+        let removeLogout = document.getElementById("logout") 
+        removeLogout.style.display= "none"
+ })
 // visa ny diplay på skärmen
