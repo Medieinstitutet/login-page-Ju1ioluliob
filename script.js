@@ -2,25 +2,43 @@ let inputUs = document.getElementById("inputUsername")
 let password = document.getElementById("inputPassword")
 let login = document.getElementById("inputSave")
 let show = document.getElementById("showText")
+let register = document.getElementById("newUser")
+
 
 // skapa inloggare
 
-const users = [
+
+if (localStorage.getItem("users")) {
+    console.log("Det finns LS")
+}else {
+
+    console.log("finns inget LS")
+
+let users = [
     {
-        "username": "janne", 
-    "password": "test"
+        username: "janne", 
+    password: "test"
     },
     {
-        "username": "tony", 
-    "password": "montana"
+        username: "tony", 
+    password: "montana"
      }
-]
-  
+];
+  console.log(users)
+ 
+  // sätt localstorage
+localStorage.setItem("usersLogin", JSON.stringify(users))
+
+}
+
 
 function log() {
+
+    let users = JSON.parse(localStorage.getItem("usersLogin"))
 for (i = 0; i < users.length; i++) {
     if (inputUs.value == users[i].username && password.value == users[i].password /*|| username === "tony" && pass === "montana" */) {
                 console.log("You have succesfully logged in " + inputUs.value)
+                
                 noLogin()
         LogoutButton()
     // console.log(password.value)
@@ -91,4 +109,37 @@ logout.appendChild(loggedUser)
         let removeLogout = document.getElementById("logout") 
         removeLogout.style.display= "none"
  })
+
+
+ // skapa ny användare
+
+
+ register.addEventListener ("click", () => {
+
+    // hämta
+    let users = JSON.parse(localStorage.getItem("usersLogin"))
+// gör ny användare
+    let newUsername = inputUs.value
+    let newPassword = password.value
+    let newUser = { 
+        username: newUsername,
+        password: newPassword
+    }
+    console.log("newUser", newUser)
+
+    // ändra
+    users.push(newUser)
+    //spara
+    localStorage.setItem("usersLogin", JSON.stringify(users))
+
+   console.log("User", users)
+
+ })
+
+//  function clean() {
+    
+    
+// inputUs.innerText = ""
+//     password.innerText = ""
+//  }
 // visa ny diplay på skärmen
