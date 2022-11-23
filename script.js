@@ -1,6 +1,7 @@
 let inputUs = document.getElementById("inputUsername")
 let password = document.getElementById("inputPassword")
 let login = document.getElementById("inputSave")
+let show = document.getElementById("showText")
 
 // skapa inloggare
 
@@ -26,14 +27,16 @@ login.addEventListener("click", ()=> {
 //         let pass = password.value;
 for (i = 0; i < users.length; i++) {
 if (inputUs.value == users[i].username && password.value == users[i].password /*|| username === "tony" && pass === "montana" */) {
-            console.log("You have succesfully logged in")
+            console.log("You have succesfully logged in " + inputUs.value)
             noLogin()
     LogoutButton()
 // console.log(password.value)
 return
 }
             }    
- console.log("h")
+
+            show.innerText= "The user does not exist"
+ console.log("not a valid account")
         }
 // validate() === true
     

@@ -5,3 +5,11 @@ footer{
     left: 0;
     width: 100%;
 }
+header{
+    position: relative;
+    left: 100px;
+}
+
+.text{
+    color: red;
+}
