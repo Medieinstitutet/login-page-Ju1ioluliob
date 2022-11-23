@@ -125,6 +125,15 @@ logout.appendChild(loggedUser)
         username: newUsername,
         password: newPassword
     }
+
+    for (i=0 ; i < users.length; i++) {
+        if(newUsername == users[i].username) {
+            console.log("taken")
+            return
+
+        } 
+        
+    }
     console.log("newUser", newUser)
 
     // ändra
@@ -133,13 +142,13 @@ logout.appendChild(loggedUser)
     localStorage.setItem("usersLogin", JSON.stringify(users))
 
    console.log("User", users)
+    }
+ )
 
- })
-
-//  function clean() {
+ function clean() {
     
     
-// inputUs.innerText = ""
-//     password.innerText = ""
-//  }
+inputUs.innerText = ""
+    password.innerText = ""
+ }
 // visa ny diplay på skärmen
