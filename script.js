@@ -170,7 +170,7 @@ logoutBtn.style.position= "fixed"
 
 // // visa den som är inloggad
 let loggedUser = document.createElement("h2")
-loggedUser.innerText= "Inlogged as: " + inputUsername.value;
+loggedUser.innerText= "Inlogged as: " + localStorage.getItem("logUser");
 
 // brevid logoutknapp
 
@@ -191,7 +191,7 @@ document.body.appendChild(loggedUser)
         head.style.display = "block"
         localStorage.removeItem("logUser")
         
-        // location.reload()
+        location.reload()
         logoutBtn.style.display= "none"
         loggedUser.style.display= "none"
         console.log("goodbye")
