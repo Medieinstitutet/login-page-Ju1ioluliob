@@ -86,22 +86,25 @@ let users = [
    
 
 
-if (localStorage.getItem("users")) {
+if (localStorage.getItem("logUser")) {
     console.log("Det finns LS")
     // let users = JSON.parse(localStorage.getItem("users"))
     // localStorage.setItem("users", users)
-    log1()
+    
+noLogin()
+    // log1()
 
     
 
 }else {
     console.log("finns inget LS logccccccccccccga in")
  // sätt localstorage
- localStorage.setItem("users", JSON.stringify(users))
-
+ 
+//  localStorage.setItem("users", JSON.stringify(users))
+ log1()
 
 }
-let usersReg = JSON.parse(localStorage.getItem("users"))
+// let usersReg = JSON.parse(localStorage.getItem("users"))
 
 function log() {
     let users = JSON.parse(localStorage.getItem("users"))
@@ -110,20 +113,21 @@ for (i = 0; i < users.length; i++) {
                 console.log("You have succesfully logged in " + inputUsername.value)
                 head.style.display = "none"
                 console.log(users)
+                let logUser = inputUsername.value
+                localStorage.setItem("logUser", logUser)
                 noLogin()
     // console.log(password.value)
     return
-    }
-                }    
+    } else { 
                 
-                showText=document.createElement("h2")
+                // showText=document.createElement("h2")
                 showText.innerText= "The user does not exist"
      console.log("not a valid account")
             head.appendChild(showText)
             
-            }
+    }}
 
-
+        }
 function setlocal() {
 
 
@@ -150,6 +154,7 @@ login.addEventListener("click", ()=> {
 // tar bort section i header alltså login funktion
 
 function noLogin(){
+
     head.style.display = "none"
     let logoutBtn = document.createElement("button")
 
@@ -181,9 +186,10 @@ document.body.appendChild(loggedUser)
 
     // lägger till funkiton logga ut 
     logoutBtn.addEventListener("click", () => {
+        showText.innerText= ""
         console.log("knapp igenom")
         head.style.display = "block"
-        // localStorage.clear()
+        localStorage.removeItem("logUser")
         
         // location.reload()
         logoutBtn.style.display= "none"
