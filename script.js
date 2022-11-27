@@ -100,20 +100,33 @@ function homeScreen(){
     welcome.innerText= "HI welcome to this page"
 
     welcome.style.position = "relative"
-    welcome.style.top = "26px"
-    welcome.style.left = "51px"
+    welcome.style.top = "-18px"
+    welcome.style.left = "-183px"
+    welcome.style.display = "inline-block"
+    
     
 
 
 // newUserkapa och skriv ut en logga ut knapp
 logoutBtn.innerText = "Logout"
 
-// flttar kanppen till höger
+// eegenskaper till logout knapp
 
 logoutBtn.style.position= "fixed"
-    logoutBtn.style.left= "93%"
-    logoutBtn.style.top= "30px"
-
+    logoutBtn.style.left= "87%"
+    logoutBtn.style.top= "24px"
+    logoutBtn.style.padding = "12px 36px";
+    logoutBtn.style.color = "#fff";
+    logoutBtn.style.textDecoration = "none";
+    logoutBtn.style.textTransform = "uppercase";
+    logoutBtn.style.fontSize = "18px";
+    logoutBtn.style.letterSpacing = "2px";
+    logoutBtn.style.borderRadius = "40px";
+    logoutBtn.style.background = "linear-gradient(90deg, #0162c8, #55e7fc)";
+    logoutBtn.style.border = "none";
+    logoutBtn.style.cursor = "pointer";
+    logoutBtn.style.boxShadow = "0px 5px darkblue"
+    logoutBtn.style.boxShadowColor = "black";
 // // visa den som är inloggad
 let loggedUser = document.createElement("h2")
 loggedUser.innerText= "Inlogged as: " + localStorage.getItem("online");
@@ -121,10 +134,10 @@ loggedUser.innerText= "Inlogged as: " + localStorage.getItem("online");
 // brevid logoutknapp
 
 loggedUser.style.position= "fixed"
-loggedUser.style.left= "78%"
-loggedUser.style.top= "22px"
-loggedUser.style.color= "grey"
-
+loggedUser.style.left= "73%"
+loggedUser.style.top= "33px"
+loggedUser.style.color= "#141111"
+loggedUser.style.fontFamily= "initial"
 
 aa.appendChild(logoutBtn)
 
@@ -161,14 +174,25 @@ createUser.addEventListener("click", () =>{
     
     let newUsernameA = newUsername.value
     let newPasswordA = newPassword.value
-  
+  let confirmPasswordA = confirmPassword.value
 
     for (i=0 ; i < users.length; i++) {
         if(newUsernameA === users[i].username) {
             console.log("taken")
             return
 
-        } else{ 
+        } else if(newPasswordA == "") {
+alert("Enter a password")
+return
+
+        }else if(newUsernameA == "") {
+            alert("Enter a username")
+            return
+                    }else if(newPasswordA != confirmPasswordA) {
+                        alert("Password not same deli!")
+                        return false;    
+                                }
+                    else{ 
             let newUser = { 
                 username: newUsernameA,
                 password: newPasswordA
@@ -185,7 +209,7 @@ createUser.addEventListener("click", () =>{
    console.log("User", users)
    signForm.style.display = "none"
    head.style.display = "block"
-
+return true
 
    }
     }
@@ -245,5 +269,7 @@ function styleLogBtn (){
     createUser.style.cursor = "pointer";
     createUser.style.boxShadow = "0px 5px darkblue"
     createUser.style.boxShadowColor = "black";
+    
+
     
 }

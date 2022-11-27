@@ -192,27 +192,44 @@ body{
   }
 
 footer{ 
-    background-color: blue;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  padding: 10px;
+
+  background-color:transparent;
+  color:black;
+  font-size: 0.8rem ;
+  display: flex;
+  gap: 20px;
+
+  align-items: center;
+  justify-content: space-between;
 }
+.fotp{
+  font-size: 19px;
+  left: 548px;
+  position: relative;
+  top: -45px;}
 
 .logoutDiv {
-    position: relative;
-    top: 6px;
-    background-color: red;
-    width: 301px;
-    height: 76px;
-    display: inline-block;
-    left: 1190px;
-    right: -13px;
+  position: relative;
+  top: 6px;
+  background: linear-gradient(90deg, rgb(117, 119, 105), rgb(187, 199, 189));
+  width: 404px;
+  height: 86px;
+  display: inline-block;
+  left: 1101px;
+  right: 24px;
+  border-radius: 23px;
+  box-shadow: #6e5754 0px 6px;
 }
 .h{
-    position:absolute;
+    position:fixed;
     height: 100px;
- background-color: lightblue;
+ background-color: lightcoral;
         width: 100%;
-    
+    top:0px;
 }
