@@ -9,14 +9,22 @@ let removeLogout = document.getElementById("userLogout")
 let head = document.getElementById("head")
 let signForm = document.getElementById("createForm")
 let aa = document.getElementById("aa")
+
 let createUser = document.getElementById("createUser")
+
+
+let newUsername = document.getElementById("newUsername")
+let newPassword = document.getElementById("newPassword")
+let confirmPassword = document.getElementById("confirmPassword")
+
+
 
 styleLogBtn()
 
 
 
 signForm.style.display = "none"
-aa.style.display = "none"
+
 
 
 window.localStorage = localStorage.getItem("logUser".logUser)
@@ -38,19 +46,18 @@ let users = [
 
 if (localStorage.getItem("online")) {
     console.log("Det finns LS")
+    homeScreen()
 
 
-noLogin()
-
-
+    
 }else {
     console.log("finns inget LS logccccccccccccga in")
 
     localStorage.setItem("logUser", JSON.stringify(users))
-
+    aa.style.display = "none"
 // localStorage.setItem("allUsers",JSON.stringify(logUser))
  
-log1()
+// log1()
 
 
 }
@@ -58,7 +65,7 @@ log1()
 
 function log() {
     // localStorage.setItem("logUser", JSON.stringify(users))
-    let users = JSON.parse(localStorage.getItem("logUser"))
+    let users = JSON.parse(localStorage.getItem("users"))
     
 for (i = 0; i < users.length; i++) {
     if (inputUsername.value === users[i].username && inputPassword.value === users[i].password || localStorage.getItem("logUser") === inputUsername.value && inputPassword.value) {
@@ -73,7 +80,7 @@ for (i = 0; i < users.length; i++) {
 
                 // logUser = localStorage.users
                 // localStorage.setItem("newUser",JSON.stringify(users))
-                noLogin()
+                homeScreen()
     return
     } 
     else{ 
@@ -86,25 +93,22 @@ for (i = 0; i < users.length; i++) {
     }}
 
         }
-function setlocal() {
 
-
-}
 
 
 // logga in användare 
-function log1() {
+
 login.addEventListener("click", ()=> {
     console.log("Click on button")
     log()
 })
-}
+
 
 
 
 // hemsida visas inloggad
 
-function noLogin(){
+function homeScreen(){
     // localStorage.setItem("users", JSON.stringify(users))
 
     head.style.display = "none"
@@ -145,14 +149,14 @@ aa.appendChild(loggedUser)
 aa.appendChild(welcome)
 
     // lägger till funkiton logga ut 
-    logoutBtn.addEventListener("click", () => {
+logoutBtn.addEventListener("click", () => {
         showText.innerText= ""
         console.log("knapp igenom")
         head.style.display = "block"
-        localStorage.setItem("users", JSON.stringify(users))
         localStorage.removeItem("online")
+
+ 
         
-        // location.reload()
         aa.style.display = "none"
 
         logoutBtn.style.display= "none"
@@ -170,37 +174,45 @@ aa.appendChild(welcome)
     aa.style.display = "none"
     head.style.display = "none"
 
-
+createUser.addEventListener("click", () =>{ 
     // hämta
-    let logUser = JSON.parse(localStorage.getItem("logUser"))
+    // let logUser = JSON.parse(localStorage.getItem("logUser"))
 // gör ny användare
-    let newUsername = inputUsername.value
-    let newPassword = inputPassword.value
-    let newUser = { 
-        id: users.length +1,
-        username: newUsername,
-        password: newPassword
-    }
+    let newUsernameA = newUsername.value
+    let newPasswordA = newPassword.value
+  
 
     for (i=0 ; i < users.length; i++) {
-        if(newUsername === users[i].username) {
+        if(newUsernameA === users[i].username) {
             console.log("taken")
             return
 
         } else{ 
+            let newUser = { 
+                // id: users.length +1,
+                username: newUsernameA,
+                password: newPasswordA
+            }
     console.log("newUser", newUser)
 
     // ändra
-   
-    logUser.push(newUser)
+   users.push(newUser)
+    // logUser.push(newUser)
 
     //spara
-    localStorage.setItem("logUser", JSON.stringify(logUser))
+    localStorage.setItem("users", JSON.stringify(users))
+    localStorage.setItem("logUser", JSON.stringify(users))
     // localStorage.setItem("",JSON.stringify(newUser))
-
+// // console.log("logUser", logUser)
+// logUser = localStorage.getItem("logUser")
    console.log("User", users)
-        }
+   signForm.style.display = "none"
+   head.style.display = "block"
+
+
+   }
     }
+} )
 } )
 
 
