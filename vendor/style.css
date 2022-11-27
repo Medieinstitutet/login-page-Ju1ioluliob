@@ -1,37 +1,5 @@
-/* {
-    box-sizing:border-box
-}
 
-html, body{
-    min-height: 100%;
-    padding: 0;
-    margin: 0;
-}
-header{
-    position: fixed;
-    top: 0;
-    background-color: lightblue;
-    width: 100%;
-}
-
-.userlogin {
-    position: absolute;
-    outline-style: solid;
-    outline-color: red;
-    background-color:grey;
-    left: 35%;
-    top: 200px;
-    size: 100px;
-    height:25rem;
-    width:30rem;
-
-    padding-top: 100px;
-    padding-left:150px;
-}
-*/
-
-
-
+@import'/vendor/normalize.css';
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
 *{
   margin: 0;
@@ -222,41 +190,6 @@ body{
     border-color: #2691d9;
     transition: .5s;
   }
-/* .box{
-    position: relative;
-    left: 582px;
-    bottom: -193px;
-    background-color: white;
-    width: 400px;
-    height: 301px;
-    border-radius: 10px;
-    display: block;
-}
-.field{
-    position: relative;
-    top: 100px;
-}
-.signbtn{
-    margin: 30px 0;
-    text-align: center;
-    font-size: 16px;
-    color: #666666;
-    position: relative;
-    top: 29px;
-    left: 12px;
-
-  }
-  .signbtn{
-    color: #2691d9;
-    text-decoration: none;
-  }
-  .signbtn:hover{
-    text-decoration: underline;
-cursor: pointer;
-  }
-   */
-
-
 
 footer{ 
     background-color: blue;

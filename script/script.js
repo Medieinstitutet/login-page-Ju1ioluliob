@@ -25,12 +25,7 @@ styleLogBtn()
 
 signForm.style.display = "none"
 
-
-
-window.localStorage = localStorage.getItem("logUser".logUser)
-// styleLogBtn()
-// let logUser = []
-// tillgängliga inloggar
+// skapa användare
 let users = [
     {
      id:1,   username: "janne", 
@@ -41,7 +36,6 @@ let users = [
     password: "montana"
      }
 ];
-// localStorage.users = JSON.stringify(users)
 
 
 if (localStorage.getItem("online")) {
@@ -55,13 +49,14 @@ if (localStorage.getItem("online")) {
 
     localStorage.setItem("logUser", JSON.stringify(users))
     aa.style.display = "none"
-// localStorage.setItem("allUsers",JSON.stringify(logUser))
- 
-// log1()
-
-
 }
-// users = JSON.parse(localStorage.getItem("logUser"))
+
+// logga in användare 
+
+login.addEventListener("click", ()=> {
+    console.log("Click on button")
+    log()
+})
 
 function log() {
     // localStorage.setItem("logUser", JSON.stringify(users))
@@ -93,19 +88,7 @@ for (i = 0; i < users.length; i++) {
     }}
 
         }
-
-
-
-// logga in användare 
-
-login.addEventListener("click", ()=> {
-    console.log("Click on button")
-    log()
-})
-
-
-
-
+        
 // hemsida visas inloggad
 
 function homeScreen(){
@@ -149,7 +132,7 @@ aa.appendChild(loggedUser)
 aa.appendChild(welcome)
 
     // lägger till funkiton logga ut 
-logoutBtn.addEventListener("click", () => {
+    logoutBtn.addEventListener("click", () => {
         showText.innerText= ""
         console.log("knapp igenom")
         head.style.display = "block"
@@ -166,7 +149,7 @@ logoutBtn.addEventListener("click", () => {
  })
 }
         
-//  // skapa ny användare
+ // skapa ny användare
 
 
  register.addEventListener ("click", () => {
@@ -175,9 +158,7 @@ logoutBtn.addEventListener("click", () => {
     head.style.display = "none"
 
 createUser.addEventListener("click", () =>{ 
-    // hämta
-    // let logUser = JSON.parse(localStorage.getItem("logUser"))
-// gör ny användare
+    
     let newUsernameA = newUsername.value
     let newPasswordA = newPassword.value
   
@@ -189,7 +170,6 @@ createUser.addEventListener("click", () =>{
 
         } else{ 
             let newUser = { 
-                // id: users.length +1,
                 username: newUsernameA,
                 password: newPasswordA
             }
@@ -197,14 +177,11 @@ createUser.addEventListener("click", () =>{
 
     // ändra
    users.push(newUser)
-    // logUser.push(newUser)
 
     //spara
     localStorage.setItem("users", JSON.stringify(users))
     localStorage.setItem("logUser", JSON.stringify(users))
-    // localStorage.setItem("",JSON.stringify(newUser))
-// // console.log("logUser", logUser)
-// logUser = localStorage.getItem("logUser")
+
    console.log("User", users)
    signForm.style.display = "none"
    head.style.display = "block"
@@ -222,16 +199,6 @@ createUser.addEventListener("click", () =>{
 
 function styleLogBtn (){
 
-    // head.style.background = " #1c1c1c"
-    // head.style.borderRadius = " 8px"
-    // head.style.overflow = "hidden"
-    // head:before.style.background = " #1c1c1c"
-    // head.style.background = " #1c1c1c"
-    // head.style.background = " #1c1c1c"
-    // head.style.background = " #1c1c1c"
-    // head.style.background = " #1c1c1c"
-    // head.style.background = " #1c1c1c"
-    // head.style.background = " #1c1c1c"
 
 
 
