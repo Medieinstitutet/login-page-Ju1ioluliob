@@ -8,24 +8,62 @@
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <h1>Welcome to our site!</h1>
-        <div class="userLogout" id="userLogout">
-        <!-- <button id="logoutBtn">logout</button>
-        <h2 id="loggedText"></h2> -->
+    <header class="h" id="aa">
+        <!-- <h1>Welcome to our site!</h1> -->
+        <div class="logoutDiv" id="logoutDiv">
+               <!-- <h1 id="welcome">Welcome to our site!</h1> -->
+
     </div>
-        <section class="userlogin" id="head">
-        <label>Username</label><br>
-        <input id="inputUsername" type="text" placeholder="Enter your username">
-        <br><br>
-        <label>Password</label>
-        <br>
-        <input id="inputPassword" type="text" placeholder="Enter your password">
-        <br><br>
-<button id="inputSave" >Log In</button>
-<button id ="newUser"> Create new user</button>
-    </section>    
 </header>
+
+        <section class="center" id="head">
+            <h1>Welcome please log in</h1>
+            <div class="form">
+                <div class="txt_field">
+                    <input class="input" id="inputUsername" type="text" placeholder="Enter your username">
+<span></span>
+        <label class="label">Username</label>
+    </div>
+        <div class="txt_field">
+            <input class="input" id="inputPassword" type="text" placeholder="Enter your password">
+        <span></span> 
+        <label class="label">Password</label>
+
+    </div>
+
+<button class="loginBtn" id="inputSave" >Login</button>
+<button class="signup" id ="newUser">Signup</button>
+</section>  
+<div class="box" id="createForm">
+    <div class="boxform">
+        <h1>Create account</h1>
+    <div class="field">
+        <input class="input2" type="text" placeholder="Username">
+        <span></span> 
+        <label class="label2">Username</label>
+    </div>
+     <div class="field">
+
+        <input class="input2"type="text" placeholder="Password" >
+        <span></span> 
+
+        <label class="label2">Password</label>
+
+    </div>
+     <div class="field">
+        <input class="input2" type="text" placeholder="Confirm password">
+        <span></span> 
+
+        <label class="label2">Confirm Password</label>
+
+    </div>
+        <div class="btn-layer"></div>
+        <button id="createUser" class="signbtn">Save</button>
+
+
+</div>
+</div>
+      
     <div id="top">
         <h1 class="text" id="showText"></h1>
 
@@ -36,6 +74,6 @@
         Disclaimer : this site is for an exercise on JS
     </p>
 </footer>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
