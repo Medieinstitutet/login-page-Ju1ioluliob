@@ -18,15 +18,43 @@ let newPassword = document.getElementById("newPassword")
 let confirmPassword = document.getElementById("confirmPassword")
 
 
+let users = JSON.parse(localStorage.getItem("users"))
+
+
 
 styleLogBtn()
 
+     aa.style.display = "none"
 
 
 signForm.style.display = "none"
 
+window.onload = function () {
+    console.log("Refresh!");
+     localStorage.setItem("users", JSON.stringify(users));
+  }
+  if (localStorage.getItem("online")) {
+    console.log("Det finns LS")
+    homeScreen()
+    aa.style.display = "block"
+
+
+}
+    
+
+ users = [];
+
+
+if (localStorage.getItem("users")) {
+    console.log("Det finns LS")
+
+    users = JSON.parse(localStorage.getItem("users"))
+    localStorage.setItem("users", JSON.stringify(users))
+}else {
+    console.log("finns inget LS logccccccccccccga in")
 // skapa användare
-let users = [
+
+users = [
     {
      id:1,   username: "janne", 
     password: "test"
@@ -36,18 +64,7 @@ let users = [
     password: "montana"
      }
 ];
-
-
-if (localStorage.getItem("online")) {
-    console.log("Det finns LS")
-    homeScreen()
-
-
-    
-}else {
-    console.log("finns inget LS logccccccccccccga in")
-
-    localStorage.setItem("logUser", JSON.stringify(users))
+    localStorage.setItem("users", JSON.stringify(users))
     aa.style.display = "none"
 }
 
@@ -58,23 +75,22 @@ login.addEventListener("click", ()=> {
     log()
 })
 
+
 function log() {
-    // localStorage.setItem("logUser", JSON.stringify(users))
     let users = JSON.parse(localStorage.getItem("users"))
+
+let username = inputUsername.value;
+let password = inputPassword.value;
     
 for (i = 0; i < users.length; i++) {
-    if (inputUsername.value === users[i].username && inputPassword.value === users[i].password || localStorage.getItem("logUser") === inputUsername.value && inputPassword.value) {
+    if (username === users[i].username && password === users[i].password || localStorage.getItem("logUser") === inputUsername.value && inputPassword.value) {
                 console.log("You have succesfully logged in " + inputUsername.value)
                 head.style.display = "none"
                 console.log(users)
-                let logUser = localStorage.getItem("logUser")
-                localStorage.setItem("logUser", logUser)
                 let online = inputUsername.value
                 localStorage.setItem("online",online)
                 aa.style.display = "block"
 
-                // logUser = localStorage.users
-                // localStorage.setItem("newUser",JSON.stringify(users))
                 homeScreen()
     return
     } 
@@ -92,7 +108,6 @@ for (i = 0; i < users.length; i++) {
 // hemsida visas inloggad
 
 function homeScreen(){
-    // localStorage.setItem("users", JSON.stringify(users))
 
     head.style.display = "none"
     let logoutBtn = document.createElement("button")
@@ -127,12 +142,12 @@ logoutBtn.style.position= "fixed"
     logoutBtn.style.cursor = "pointer";
     logoutBtn.style.boxShadow = "0px 5px darkblue"
     logoutBtn.style.boxShadowColor = "black";
-// // visa den som är inloggad
+
+    // visa den som är inloggad
 let loggedUser = document.createElement("h2")
 loggedUser.innerText= "Inlogged as: " + localStorage.getItem("online");
 
 // brevid logoutknapp
-
 loggedUser.style.position= "fixed"
 loggedUser.style.left= "73%"
 loggedUser.style.top= "33px"
@@ -171,7 +186,7 @@ aa.appendChild(welcome)
     head.style.display = "none"
 
 createUser.addEventListener("click", () =>{ 
-    
+
     let newUsernameA = newUsername.value
     let newPasswordA = newPassword.value
   let confirmPasswordA = confirmPassword.value
@@ -185,18 +200,11 @@ createUser.addEventListener("click", () =>{
 alert("Enter a password")
 return
 
-        }else if(newUsernameA == "") {
-            alert("Enter a username")
-            return
-                    }else if(newPasswordA != confirmPasswordA) {
-                        alert("Password not same deli!")
-                        return false;    
-                                }
-                    else{ 
-            let newUser = { 
+        }else if(newPasswordA === confirmPasswordA) {
+            let newUser = {
                 username: newUsernameA,
-                password: newPasswordA
-            }
+                password: newPasswordA,
+            };
     console.log("newUser", newUser)
 
     // ändra
@@ -204,11 +212,17 @@ return
 
     //spara
     localStorage.setItem("users", JSON.stringify(users))
-    localStorage.setItem("logUser", JSON.stringify(users))
 
    console.log("User", users)
    signForm.style.display = "none"
    head.style.display = "block"
+            return
+                    }else if(newPasswordA != confirmPasswordA) {
+                        alert("Password not same deli!")
+                        return false;    
+                                }
+                    else{ 
+            console.log("h")
 return true
 
    }
