@@ -26,11 +26,9 @@ styleLogBtn()
 
      aa.style.display = "none"
 
-
 signForm.style.display = "none"
 
 window.onload = function () {
-    console.log("Refresh!");
      localStorage.setItem("users", JSON.stringify(users));
   }
   if (localStorage.getItem("online")) {
